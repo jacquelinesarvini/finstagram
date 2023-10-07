@@ -23,6 +23,7 @@ get '/' do
   @raph_wants_to_go_to_jp = {
     username: "raph_wants_to_go_to_jp",
     avatar_url: "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
+    photo_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmiPj0TKwKp5uM6pt6XdjWCISuqMlK2pk-zg&usqp=CAU",
     humanized_time_ago: humanized_time_ago(65),
     like_count: 0,
     comment_count: 1,
@@ -35,6 +36,7 @@ get '/' do
   @jo_wants_to_go_to_nz = {
     username: "jo_wants_to_go_to_nz",
     avatar_url: "https://lp-cms-production.imgix.net/2023-02/GettyImages-1172642617.jpg?auto=format&w=1440&h=810&fit=crop&q=75",
+    photo_url: "https://i.pinimg.com/736x/52/d6/1b/52d61bc48644ced416ddc9d657801aa6.jpg",
     humanized_time_ago: humanized_time_ago(190),
     like_count: 0,
     comment_count: 1,
@@ -44,7 +46,7 @@ get '/' do
     }]
   }
 
-  @finstagram_posts = [@jackie_wants_to_go_to_kz, @raph_wants_to_go_to_jp, @jo_wants_to_go_to_nz].to_s
+  @finstagram_posts = [@jackie_wants_to_go_to_kz, @raph_wants_to_go_to_jp, @jo_wants_to_go_to_nz]
 
   erb(:index)
 end

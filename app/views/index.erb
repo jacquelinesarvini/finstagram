@@ -3,67 +3,29 @@
 </header>
 
 <main role="main">
-    <article class="finstagram-post">
-        <div class="user-info">
-            <img src="<%= @jackie_wants_to_go_to_kz[:avatar_url] %>" alt="<%= @jackie_wants_to_go_to_kz[:username] %>">
-            <h2><%= @jackie_wants_to_go_to_kz[:username] %></h2>
-            <h3><%= @jackie_wants_to_go_to_kz[:humanized_time_ago] %></h3>
-        </div>
-        <a class="photo" href="#">
-            <img src="<%= @jackie_wants_to_go_to_kz[:photo_url] %>" alt="finstagram post from <%= @jackie_wants_to_go_to_kz[:username] %>">
-        </a>
-        <div class="actions">
-            <%= @jackie_wants_to_go_to_kz[:like_count] %> likes
-            <span class="comment-count"><%= @jackie_wants_to_go_to_kz[:comment_count] %> comment </span>
-        </div>
-        <ul class="comments">
-            <li>
-                <p>
-                    <%= @jackie_wants_to_go_to_kz[:comments][0][:username] %>: <%= @jackie_wants_to_go_to_kz[:comments][0][:text] %>
-                </p>
-            </li>
-        </ul>
-    </article>
-    <article class="finstagram-post">
-        <div class="user-info">
-            <img src="<%= @raph_wants_to_go_to_jp[:avatar_url] %>" alt="<%= @raph_wants_to_go_to_jp[:username] %>">
-            <h2><%= @raph_wants_to_go_to_jp[:username] %></h2>
-            <h3><%= @raph_wants_to_go_to_jp[:humanized_time_ago] %></h3>
-        </div>
-        <a class="photo" href="#">
-            <img src="<%= @raph_wants_to_go_to_jp[:photo_url] %>" alt="finstagram post from <%= @raph_wants_to_go_to_jp[:username] %>">
-        </a>
-        <div class="actions">
-            <%= @raph_wants_to_go_to_jp[:like_count] %> likes
-            <span class="comment-count"><%= @raph_wants_to_go_to_jp[:comment_count] %> comment </span>
-        </div>
-        <ul class="comments">
-            <li>
-                <p>
-                    <%= @raph_wants_to_go_to_jp[:comments][0][:username] %>: <%= @raph_wants_to_go_to_jp[:comments][0][:text] %>
-                </p>
-            </li>
-        </ul>
-    </article>
-    <article class="finstagram-post">
-        <div class="user-info">
-            <img src="<%= @jo_wants_to_go_to_nz[:avatar_url] %>" alt="<%= @jo_wants_to_go_to_nz[:username] %>">
-            <h2><%= @raph_wants_to_go_to_jp[:username] %></h2>
-            <h3><%= @raph_wants_to_go_to_jp[:humanized_time_ago] %></h3>
-        </div>
-        <a class="photo" href="#">
-            <img src="<%= @jo_wants_to_go_to_nz[:photo_url] %>" alt="finstagram post from <%= @jo_wants_to_go_to_nz[:username] %>">
-        </a>
-        <div class="actions">
-            <%= @jo_wants_to_go_to_nz[:like_count] %> likes
-            <span class="comment-count"><%= @jo_wants_to_go_to_nz[:comment_count] %> comment </span>
-        </div>
-        <ul class="comments">
-            <li>
-                <p>
-                    <%= @jo_wants_to_go_to_nz[:comments][0][:username] %>: <%= @jo_wants_to_go_to_nz[:comments][0][:text] %>
-                </p>
-            </li>
-        </ul>
-    </article>
+    <% @finstagram_posts.each do |finstagram_post| %>
+        <article class="finstagram-post">
+            <div class="user-info">
+                <img src="<%= finstagram_post[:avatar_url] %>" alt="<%= finstagram_post[:username] %>">
+                <h2><%= finstagram_post[:username] %></h2>
+                <h3><%= finstagram_post[:humanized_time_ago] %></h3>
+            </div>
+            <a class="photo" href="#">
+                <img src="<%= finstagram_post[:photo_url] %>" alt="finstagram post from <%= finstagram_post[:username] %>">
+            </a>
+            <div class="actions">
+                <%= finstagram_post[:like_count] %> likes
+                <span class="comment-count"><%= finstagram_post[:comment_count] %> comment </span>
+            </div>
+            <ul class="comments">
+                <% finstagram_post[:comments].each do |comment| %>
+                    <li>
+                        <p>
+                            <%= comment[:username] %>: <%= comment[:text] %>
+                        </p>
+                    </li>
+                <% end %>
+            </ul>
+        </article>
+    <% end %>
 </main>
